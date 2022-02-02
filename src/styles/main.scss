@@ -1,0 +1,205 @@
+$color-dark: #171923;
+$color-light: #f0f8ff;
+$color-green: #63ff20;
+
+body {
+    font-family: "Ubuntu Mono", monospace;
+    background-color: $color-light;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.generator {
+    width: 700px;
+    background-color: $color-dark;
+    color: $color-light;
+    padding: 1.2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+
+    h2 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        letter-spacing: 2px;
+    }
+}
+
+.ready_password {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.4rem 0.6rem;
+    margin: 1rem 0;
+    border-radius: 0.25rem;
+    border: 3px solid $color-light;
+
+    .password {
+        font-size: 1.3rem;
+        font-weight: bold;
+        padding: 0 1rem;
+        text-align: center;
+        color: $color-light;
+        overflow-wrap: anywhere;
+    }
+    .copy_icon svg {
+        width: 24px;
+        fill: $color-green;
+        cursor: pointer;
+        transition: 0.6s all;
+
+        &:hover {
+            fill: $color-light;
+        }
+    }
+}
+
+.options_password {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 1rem 0;
+
+    .checkbox {
+        display: flex;
+        height: 30px;
+        align-items: center;
+        padding-right: 0.5rem;
+        input[type="checkbox"] {
+            font-size: 0.8rem;
+            appearance: none;
+            width: 3.5em;
+            height: 1.5em;
+            background: $color-light;
+            border-radius: 3em;
+            position: relative;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.2s ease-in-out;
+        }
+
+        input[type="checkbox"]:checked {
+            background: $color-green;
+        }
+
+        input[type="checkbox"]:after {
+            position: absolute;
+            content: "";
+            width: 1.5em;
+            height: 1.5em;
+            border-radius: 50%;
+            background: $color-dark;
+            transform: scale(0.7);
+            left: 0;
+            transition: all 0.2s ease-in-out;
+        }
+
+        input[type="checkbox"]:checked:after {
+            left: calc(100% - 1.5em);
+        }
+        label {
+            font-size: 1.1rem;
+            padding-left: 0.5rem;
+        }
+    }
+
+    .range {
+        display: flex;
+        flex-direction: column;
+        .length_range {
+            display: flex;
+            flex-direction: column;
+            input[type="range"] {
+                appearance: none !important;
+                background: $color-light;
+                height: 7px;
+                border-radius: 1rem;
+            }
+            input[type="range"]::-webkit-slider-thumb {
+                appearance: none;
+                border: none;
+                background: $color-green;
+                border-radius: 50%;
+                height: 20px;
+                width: 20px;
+            }
+            input[type="range"]::-moz-range-thumb {
+                appearance: none;
+                border: none;
+                background: $color-green;
+                border-radius: 50%;
+                height: 20px;
+                width: 20px;
+            }
+            label {
+                font-size: 1.1rem;
+                margin-bottom: 0.8rem;
+                .length_number {
+                    font-size: 1.1rem;
+                    color: $color-green;
+                }
+            }
+        }
+        button {
+            background: transparent;
+            border: 1px solid $color-green;
+            color: $color-green;
+            padding: 0.25rem 1rem;
+            font-weight: bold;
+            border-radius: 0.25rem;
+            font-size: 1.2rem;
+            align-self: self-end;
+            margin-top: 1.5rem;
+            cursor: pointer;
+            letter-spacing: 2px;
+            font-family: "Ubuntu Mono", monospace;
+
+            &:hover {
+                color: $color-light;
+                border-color: $color-light;
+            }
+        }
+    }
+}
+
+.message {
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    text-align: center;
+    transition: all 1s;
+    height: 20px;
+}
+
+.madeBy {
+    margin-top: 1rem;
+    color: gray;
+    span {
+        font-weight: bold;
+        color: $color-dark;
+    }
+}
+
+@media (max-width: 800px) {
+    .container {
+        display: flex;
+        flex-direction: unset;
+        justify-content: unset;
+        align-items: unset;
+        height: 100vh;      
+    }
+    .generator {
+        width: 100%;
+        border-radius: 0;
+    }
+    .options_password {
+        grid-template-columns: 1fr;
+        row-gap: 1rem;
+    }
+    .madeBy {
+        display: none;
+    }
+}
